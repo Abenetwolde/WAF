@@ -18,6 +18,10 @@ import type { AnalysisData } from './data.d';
 import { fakeChartData } from './service';
 import useStyles from './style.style';
 import { getTimeDistance } from './utils/utils';
+import OSPie from './components/OSPie';
+import RequestMethod from './components/RequestMethod';
+import UserAgent from './components/UserAgent';
+import Port from './components/Port';
 type RangePickerValue = RangePickerProps<dayjs.Dayjs>['value'];
 type AnalysisProps = {
   dashboardAndanalysis: AnalysisData;
@@ -115,7 +119,7 @@ const Analysis: FC<AnalysisProps> = () => {
             selectDate={selectDate}
           />
         </Suspense>
-{/* 
+
         <Row
           gutter={24}
           style={{
@@ -145,7 +149,93 @@ const Analysis: FC<AnalysisProps> = () => {
           </Col>
         </Row>
 
-        <Suspense fallback={null}>
+        <Row
+          gutter={24}
+          style={{
+            marginTop: 24,
+          }}
+        >
+          <Col xl={12} lg={24} md={24} sm={24} xs={24}>
+          <Suspense fallback={null}>
+              <OSPie
+                dropdownGroup={dropdownGroup}
+                salesType={salesType}
+                loading={loading}
+                salesPieData={salesPieData || []}
+                handleChangeSalesType={handleChangeSalesType}
+              />
+               </Suspense>
+          </Col>
+          <Col xl={12} lg={24} md={24} sm={24} xs={24}>
+            <Suspense fallback={null}>
+              <RequestMethod
+                dropdownGroup={dropdownGroup}
+                salesType={salesType}
+                loading={loading}
+                salesPieData={salesPieData || []}
+                handleChangeSalesType={handleChangeSalesType}
+              />
+            </Suspense>
+          </Col>
+        </Row>
+        <Row
+          gutter={24}
+          style={{
+            marginTop: 24,
+          }}
+        >
+          <Col xl={24} lg={24} md={24} sm={24} xs={24}>
+          <Suspense fallback={null}>
+              <UserAgent
+                loading={loading}
+                visitData2={data?.visitData2 || []}
+                searchData={data?.searchData || []}
+                dropdownGroup={dropdownGroup}
+              />
+            </Suspense>
+          </Col>
+          {/* <Col xl={12} lg={24} md={24} sm={24} xs={24}>
+            <Suspense fallback={null}>
+              <RequestMethod
+                dropdownGroup={dropdownGroup}
+                salesType={salesType}
+                loading={loading}
+                salesPieData={salesPieData || []}
+                handleChangeSalesType={handleChangeSalesType}
+              />
+            </Suspense>
+          </Col> */}
+        </Row>
+        <Row
+          gutter={24}
+          style={{
+            marginTop: 24,
+          }}
+        >
+          <Col xl={12} lg={24} md={24} sm={24} xs={24}>
+          <Suspense fallback={null}>
+              <Port
+                dropdownGroup={dropdownGroup}
+                salesType={salesType}
+                loading={loading}
+                salesPieData={salesPieData || []}
+                handleChangeSalesType={handleChangeSalesType}
+              />
+               </Suspense>
+          </Col>
+          {/* <Col xl={12} lg={24} md={24} sm={24} xs={24}>
+            <Suspense fallback={null}>
+              <RequestMethod
+                dropdownGroup={dropdownGroup}
+                salesType={salesType}
+                loading={loading}
+                salesPieData={salesPieData || []}
+                handleChangeSalesType={handleChangeSalesType}
+              />
+            </Suspense>
+          </Col> */}
+        </Row>
+        {/* <Suspense fallback={null}>
           <OfflineData
             activeKey={activeKey}
             loading={loading}

@@ -47,7 +47,7 @@ const RankingList = ({ data }: { data: RankingItem[] }) => {
   return (
     <Col xs={24} lg={8}>
       <div className={styles.salesRank}>
-        <h4 className={styles.rankingTitle}>Store Sales Ranking</h4>
+        <h4 className={styles.rankingTitle}>Countries Ranking</h4>
         <ul className={styles.rankingList}>
           {data.map((item, index) => (
             <li key={index}>
@@ -161,7 +161,7 @@ const SalesCard = ({ loading }: { loading: boolean }) => {
               {renderChart('Today Requests', generateFakeData())}
               <Col xs={24} lg={8}>
                 <div className={styles.salesRank}>
-                  <h4 className={styles.rankingTitle}>Store Sales Ranking</h4>
+                  <h4 className={styles.rankingTitle}>Countries Ranking</h4>
                   <ul className={styles.rankingList}>
                     {generateFakeData().map((item, index) => (
                       <li key={index}>
